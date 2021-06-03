@@ -15,17 +15,17 @@ class PlaceLocationController extends Controller
      * Display a listing of the resource.
      *
      * @param \App\Filters\PlaceFilter  $filter
-     * @param string $uuid
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function index(LocationFilter $filter, string $uuid)
+    public function index(LocationFilter $filter, int $id)
     {
-        if (! Place::where('uuid', $uuid)->exists()) {
+        if (! Place::where('geoname_id', $id)->exists()) {
             throw (new ModelNotFoundException())->setModel(Country::class);
         }
 
         $location = $filter
-            ->applyScope('byPlace', Arr::wrap($uuid))
+            ->applyScope('byPlace', Arr::wrap($id))
             ->getBuilder()
             ->first();
 

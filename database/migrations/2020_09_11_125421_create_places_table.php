@@ -14,7 +14,7 @@ class CreatePlacesTable extends Migration
     public function up()
     {
         Schema::create('places', function (Blueprint $table) {
-            $table->uuid('uuid')->primary();
+            $table->id('geoname_id');
             $table->string('name');
             $table->unsignedBigInteger('population')->nullable();
             $table->smallInteger('elevation')->nullable();

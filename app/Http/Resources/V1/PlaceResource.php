@@ -15,7 +15,7 @@ class PlaceResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'uuid'         => $this->uuid,
+            'id'           => $this->geoname_id,
             'name'         => $this->name,
             'population'   => $this->population,
             'elevation'    => $this->elevation,

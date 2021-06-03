@@ -30,13 +30,13 @@ class Location extends Model
      * Get locations by place.
      *
      * @param \Illuminate\Database\Eloquent\Builder  $query
-     * @param string $uuid
+     * @param int $geonameId
      * @return \Illuminate\Database\Eloquent\Builder  $query
      */
-    public function scopeByPlace(Builder $query, string $uuid)
+    public function scopeByPlace(Builder $query, int $id)
     {
         return $query
-            ->where('locationable_id', $uuid)
+            ->where('locationable_id', $id)
             ->where('locationable_type', Place::class);
     }
 }
